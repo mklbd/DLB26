@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ডেলি লিড ক্রয়-2026 | DLB26</title>
+
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Arial,"Noto Sans Bengali",sans-serif;color:#fff}
+body{
+  background:
+    radial-gradient(circle at 20% 20%,#173c70 0,#071326 28%,#02040b 65%,#000 100%);
+  overflow-x:hidden;
+}
+body:before,body:after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+}
+body:before{
+  background-image:
+    radial-gradient(#fff 1px,transparent 1px),
+    radial-gradient(#6bd6ff 1px,transparent 1px);
+  background-size:90px 90px,145px 145px;
+  background-position:0 0,40px 70px;
+  opacity:.18;
+  animation:stars 20s linear infinite;
+}
+@keyframes stars{
+  from{transform:translateY(0)}
+  to{transform:translateY(-90px)}
+}
+
+button,input,select,textarea{
+  font:inherit;
+}
+button{
+  cursor:pointer;
+}
+.hidden{display:none!important}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  padding:12px 20px;
+  background:rgba(2,8,25,.88);
+  border-bottom:1px solid rgba(93,194,255,.35);
+  backdrop-filter:blur(12px);
+}
+.logo{
+  width:55px;height:55px;border-radius:18px;
+  display:grid;place-items:center;
+  font-weight:900;font-size:19px;
+  color:#07111f;
+  background:linear-gradient(135deg,#62e6ff,#fff,#8d7aff);
+  box-shadow:0 0 25px #35cfff;
+}
+.header-title{
+  flex:1;
+  text-align:center;
+  font-size:22px;
+  font-weight:900;
+  white-space:nowrap;
+  overflow:hidden;
+  text-shadow:0 0 12px #4edcff;
+  animation:titleGlow 2s infinite alternate;
+}
+@keyframes titleGlow{
+  from{transform:scale(1)}
+  to{transform:scale(1.025);text-shadow:0 0 25px #5be5ff}
+}
+.editby{
+  font-size:12px;
+  color:#9fdcff;
+}
+.container{
+  width:min(1200px,94%);
+  margin:25px auto 60px;
+}
+.card{
+  background:rgba(8,17,39,.75);
+  border:1px solid rgba(85,202,255,.32);
+  border-radius:28px;
+  padding:22px;
+  box-shadow:0 0 35px rgba(0,173,255,.12);
+  backdrop-filter:blur(12px);
+}
+.auth{
+  max-width:480px;
+  margin:70px auto;
+}
+.auth h1{
+  text-align:center;
+  margin-top:0;
+  color:#78eaff;
+}
+.auth-tabs{
+  display:flex;
+  gap:8px;
+  margin-bottom:18px;
+}
+.auth-tabs button,.menu button,.primary,.danger,.secondary{
+  border:0;
+  border-radius:13px;
+  padding:11px 15px;
+  color:#fff;
+  background:#12315b;
+}
+.auth-tabs button.active,.primary{
+  background:linear-gradient(135deg,#008cff,#704cff);
+  box-shadow:0 0 18px rgba(0,160,255,.35);
+}
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+.field.full{grid-column:1/-1}
+label{
+  color:#a8dfff;
+  font-size:14px;
+}
+input,select,textarea{
+  width:100%;
+  border:1px solid rgba(91,204,255,.28);
+  outline:none;
+  border-radius:12px;
+  padding:12px;
+  color:#fff;
+  background:rgba(0,0,0,.38);
+}
+textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus{
+  border-color:#57dfff;
+  box-shadow:0 0 12px rgba(44,211,255,.18);
+}
+.action{
+  margin-top:18px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.danger{background:#8f2038}
+.secondary{background:#273550}
+.notice{
+  margin:12px 0;
+  padding:12px;
+  border-radius:12px;
+  background:rgba(255,174,0,.12);
+  border:1px solid rgba(255,188,0,.3);
+  color:#ffe29a;
+}
+.error{
+  margin:12px 0;
+  padding:12px;
+  border-radius:12px;
+  background:rgba(255,0,70,.12);
+  border:1px solid rgba(255,70,110,.35);
+  color:#ffb4c6;
+}
+.success{
+  margin:12px 0;
+  padding:12px;
+  border-radius:12px;
+  background:rgba(0,255,160,.1);
+  border:1px solid rgba(0,255,160,.3);
+  color:#9effdc;
+}
+
+.userbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:20px;
+}
+.profile{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.avatar{
+  width:68px;height:68px;border-radius:22px;
+  display:grid;place-items:center;
+  overflow:hidden;
+  background:linear-gradient(135deg,#162f70,#7b35ff);
+  border:2px solid rgba(120,225,255,.5);
+}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.profile-name{
+  font-size:23px;
+  font-weight:900;
+}
+.profile-email{font-size:12px;color:#8ebbd4}
+.balance{
+  text-align:right;
+}
+.balance strong{
+  display:block;
+  font-size:25px;
+  color:#70eaff;
+}
+.balance small{color:#9bb7cc}
+
+.ticker{
+  height:54px;
+  overflow:hidden;
+  border-radius:18px;
+  margin-bottom:18px;
+  background:rgba(0,0,0,.3);
+  border:1px solid rgba(98,210,255,.2);
+}
+.ticker-track{
+  animation:ticker 14s linear infinite;
+}
+.ticker-item{
+  height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#b8ecff;
+}
+@keyframes ticker{
+  0%{transform:translateY(0)}
+  100%{transform:translateY(-50%)}
+}
+
+.admin-message{
+  padding:18px;
+  border-radius:20px;
+  margin-bottom:20px;
+  background:linear-gradient(90deg,rgba(255,136,0,.15),rgba(0,139,255,.16));
+  border:1px solid rgba(255,185,72,.35);
+}
+.admin-message h3{margin:0 0 7px;color:#ffd47a}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-bottom:20px;
+}
+.stat{
+  padding:20px;
+  border-radius:24px;
+  background:linear-gradient(145deg,rgba(13,43,89,.85),rgba(26,12,66,.7));
+  border:1px solid rgba(111,213,255,.25);
+}
+.stat span{color:#9fcce5;font-size:13px}
+.stat strong{
+  display:block;
+  font-size:29px;
+  margin-top:8px;
+  color:#72edff;
+}
+
+.menu{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-bottom:20px;
+}
+.menu button{
+  min-height:52px;
+  background:rgba(15,38,73,.8);
+  border:1px solid rgba(86,198,255,.18);
+}
+.menu button:hover{
+  background:linear-gradient(135deg,#12569a,#5a2aa3);
+}
+
+.panel{
+  margin-top:20px;
+}
+.panel h2{
+  color:#7cecff;
+  margin-top:0;
+}
+
+.table-wrap{
+  overflow:auto;
+  border-radius:16px;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:700px;
+}
+th,td{
+  padding:11px;
+  border-bottom:1px solid rgba(124,198,255,.12);
+  text-align:left;
+}
+th{
+  color:#8eeeff;
+  background:rgba(20,57,100,.6);
+}
+td{color:#d9f4ff}
+
+.admin-menu{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  margin-bottom:20px;
+}
+.admin-menu button{
+  border:1px solid rgba(255,176,62,.2);
+  border-radius:14px;
+  padding:13px 8px;
+  color:#fff;
+  background:linear-gradient(145deg,rgba(23,55,94,.9),rgba(64,26,73,.8));
+}
+.admin-menu button.active{
+  box-shadow:0 0 20px rgba(255,166,50,.22);
+  border-color:#ffc66b;
+}
+
+.total-box{
+  margin-top:15px;
+  padding:16px;
+  border-radius:16px;
+  background:rgba(0,177,255,.08);
+  border:1px solid rgba(0,210,255,.2);
+}
+.total-box strong{color:#75eeff}
+
+.footer{
+  text-align:center;
+  padding:30px;
+  color:#62869d;
+  font-size:12px;
+}
+
+@media(max-width:850px){
+  .header-title{font-size:16px}
+  .editby{display:none}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .menu{grid-template-columns:repeat(2,1fr)}
+  .admin-menu{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+  header{padding:9px 12px}
+  .logo{width:46px;height:46px}
+  .container{width:96%}
+  .form-grid{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  .stats{grid-template-columns:1fr 1fr}
+  .profile-name{font-size:18px}
+  .balance strong{font-size:19px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">DLB26</div>
+  <div class="header-title">ডেলি লিড ক্রয়-2026</div>
+  <div class="editby">Editby_Jahir290</div>
+</header>
+
+<main class="container">
+
+<!-- AUTH -->
+<section id="authSection" class="card auth">
+  <h1>প্রতিদিন লিড ক্রয়, এবং বিক্রয়-26</h1>
+
+  <div class="auth-tabs">
+    <button id="loginTab" class="active" onclick="showAuth('login')">Login</button>
+    <button id="signupTab" onclick="showAuth('signup')">Signup</button>
+  </div>
+
+  <div id="authMessage"></div>
+
+  <div id="loginForm">
+    <div class="field">
+      <label>Email</label>
+      <input id="loginEmail" type="email" placeholder="আপনার email">
+    </div>
+
+    <div class="field" style="margin-top:12px">
+      <label>Password</label>
+      <input id="loginPassword" type="password" placeholder="Password">
+    </div>
+
+    <div class="action">
+      <button class="primary" onclick="loginEmail()">Login</button>
+      <button class="secondary" onclick="loginGoogle()">Google Sign-in</button>
+    </div>
+  </div>
+
+  <div id="signupForm" class="hidden">
+    <div class="form-grid">
+      <div class="field full">
+        <label>নাম</label>
+        <input id="signupName" placeholder="পূর্ণ নাম">
+      </div>
+
+      <div class="field">
+        <label>Email</label>
+        <input id="signupEmail" type="email">
+      </div>
+
+      <div class="field">
+        <label>Phone</label>
+        <input id="signupPhone" type="tel">
+      </div>
+
+      <div class="field full">
+        <label>Password</label>
+        <input id="signupPassword" type="password">
+      </div>
+    </div>
+
+    <div class="notice">
+      Password কমপক্ষে ৬ অক্ষরের দিন।
+    </div>
+
+    <div class="action">
+      <button class="primary" onclick="signup()">Account তৈরি করুন</button>
+    </div>
+  </div>
+</section>
+
+<!-- APP -->
+<section id="appSection" class="hidden">
+
+  <div class="userbar card">
+    <div class="profile">
+      <div class="avatar" id="avatarBox">DL</div>
+      <div>
+        <div class="profile-name" id="profileName">User</div>
+        <div class="profile-email" id="profileEmail"></div>
+      </div>
+    </div>
+
+    <div class="balance">
+      <strong id="balanceAmount">৳ 0</strong>
+      <small>বর্তমান বাকী</small>
+    </div>
+
+    <button class="danger" onclick="logout()">Logout</button>
+  </div>
+
+  <div class="ticker">
+    <div id="tickerTrack" class="ticker-track"></div>
+  </div>
+
+  <div class="admin-message">
+    <h3>📢 নতুন কাজ / Admin Message</h3>
+    <div id="announcementText">কোনো নতুন ঘোষণা নেই।</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <span>আজকের OK Lead</span>
+      <strong id="todayOk">0</strong>
+    </div>
+    <div class="stat">
+      <span>আজকের Problem</span>
+      <strong id="todayProblem">0</strong>
+    </div>
+    <div class="stat">
+      <span>আজকের টাকা</span>
+      <strong id="todayMoney">৳ 0</strong>
+    </div>
+    <div class="stat">
+      <span>মোট Paid</span>
+      <strong id="totalPaid">৳ 0</strong>
+    </div>
+  </div>
+
+  <div id="userMenu" class="menu">
+    <button onclick="userPanel('leads')">✅ অকে লিড</button>
+    <button onclick="userPanel('money')">💰 লিডের টাকা</button>
+    <button onclick="userPanel('report')">📊 আজকের রিপোর্ট</button>
+    <button onclick="userPanel('filter')">🔎 ফিল্টার</button>
+    <button onclick="userPanel('due')">💵 বাকী টাকা</button>
+    <button onclick="userPanel('work')">📢 নতুন কাজ</button>
+    <button onclick="userPanel('history')">📜 হিষ্টরী</button>
+    <button onclick="userPanel('home')">🏠 হোম পেজ</button>
+  </div>
+
+  <div id="userPanel" class="card panel hidden"></div>
+
+  <!-- ADMIN -->
+  <div id="adminArea" class="hidden">
+
+    <div class="admin-menu">
+      <button onclick="adminPanel('lead')" id="adminLeadBtn">➕ Lead Add</button>
+      <button onclick="adminPanel('payment')" id="adminPaymentBtn">💰 Payment Add</button>
+      <button onclick="adminPanel('user')" id="adminUserBtn">👥 User Add</button>
+      <button onclick="adminPanel('work')" id="adminWorkBtn">📢 New Work</button>
+      <button onclick="adminPanel('history')" id="adminHistoryBtn">📜 History</button>
+    </div>
+
+    <div id="adminPanel" class="card panel"></div>
+  </div>
+
+</section>
+
+<div class="footer">
+  DLB26 • প্রতিদিন লিড ক্রয়, এবং বিক্রয়-26
+</div>
+
+</main>
+
+<script type="module">
+
+/* =========================================================
+   FIREBASE
+   ========================================================= */
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+  updateProfile
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+import {
+  getFirestore,
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  addDoc,
+  setDoc,
+  updateDoc,
+  deleteDoc,
+  query,
+  where,
+  orderBy,
+  limit,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+/*
+  আপনার DLB26 Firebase project configuration
+*/
+const firebaseConfig = {
+  apiKey: "AIzaSyBcXig7WwrHTGcYi4ZZqY9Tjwmuj0hCORM",
+  authDomain: "dlb26-769f8.firebaseapp.com",
+  projectId: "dlb26-769f8",
+  storageBucket: "dlb26-769f8.firebasestorage.app",
+  messagingSenderId: "37895314024",
+  appId: "1:37895314024:web:0d8d2bbf7247b41b2179dd",
+  measurementId: "G-FT871P7Y1Y"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+const ADMIN_EMAIL = "marketplacelaptopsale@gmail.com";
+
+let currentUser = null;
+let currentProfile = null;
+let allUsers = [];
+let allLeads = [];
+let allPayments = [];
+let announcements = [];
+
+window.showAuth = showAuth;
+window.loginEmail = loginEmail;
+window.loginGoogle = loginGoogle;
+window.signup = signup;
+window.logout = logout;
+window.userPanel = userPanel;
+window.adminPanel = adminPanel;
+window.submitLead = submitLead;
+window.deleteLead = deleteLead;
+window.submitPayment = submitPayment;
+window.submitUser = submitUser;
+window.saveAnnouncement = saveAnnouncement;
+window.deleteUser = deleteUser;
+window.saveUserEdit = saveUserEdit;
+window.saveLeadEdit = saveLeadEdit;
+window.filterHistory = filterHistory;
+
+/* =========================================================
+   HELPERS
+   ========================================================= */
+
+function $(id){
+  return document.getElementById(id);
+}
+
+function today(){
+  return new Date().toISOString().slice(0,10);
+}
+
+function money(n){
+  return "৳ " + Number(n || 0).toLocaleString("en-BD");
+}
+
+function esc(value){
+  return String(value ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+function isAdmin(){
+  return currentUser?.email?.toLowerCase() === ADMIN_EMAIL.toLowerCase()
+      || currentProfile?.role === "admin";
+}
+
+function totalLeadMoney(lead){
+  return Number(lead.total || 0);
+}
+
+function leadUserId(lead){
+  return lead.userId || lead.uid || "";
+}
+
+/* =========================================================
+   AUTH UI
+   ========================================================= */
+
+function showAuth(type){
+  $("loginForm").classList.toggle("hidden",type !== "login");
+  $("signupForm").classList.toggle("hidden",type !== "signup");
+  $("loginTab").classList.toggle("active",type === "login");
+  $("signupTab").classList.toggle("active",type === "signup");
+  $("authMessage").innerHTML = "";
+}
+
+function authMessage(text,type="error"){
+  $("authMessage").innerHTML =
+    `<div class="${type}">${esc(text)}</div>`;
+}
+
+async function loginEmail(){
+  const email = $("loginEmail").value.trim();
+  const password = $("loginPassword").value;
+
+  if(!email || !password){
+    authMessage("Email এবং Password দিন।");
+    return;
+  }
+
+  try{
+    await signInWithEmailAndPassword(auth,email,password);
+  }catch(error){
+    authMessage(error.message);
+  }
+}
+
+async function loginGoogle(){
+  try{
+    const provider = new GoogleAuthProvider();
+    await signInWithPopup(auth,provider);
+  }catch(error){
+    authMessage(error.message);
+  }
+}
+
+async function signup(){
+  const name = $("signupName").value.trim();
+  const email = $("signupEmail").value.trim();
+  const phone = $("signupPhone").value.trim();
+  const password = $("signupPassword").value;
+
+  if(!name || !email || !phone || !password){
+    authMessage("সব তথ্য পূরণ করুন।");
+    return;
+  }
+
+  if(password.length < 6){
+    authMessage("Password কমপক্ষে ৬ অক্ষরের হতে হবে।");
+    return;
+  }
+
+  try{
+    const result = await createUserWithEmailAndPassword(
+      auth,email,password
+    );
+
+    await updateProfile(result.user,{displayName:name});
+
+    await setDoc(doc(db,"users",result.user.uid),{
+      name,
+      email,
+      phone,
+      role:"user",
+      createdAt:serverTimestamp(),
+      device:navigator.userAgent,
+      location:"Browser permission not provided",
+      network:"Browser থেকে network name পাওয়া যায় না"
+    });
+
+  }catch(error){
+    authMessage(error.message);
+  }
+}
+
+async function logout(){
+  await signOut(auth);
+}
+
+/* =========================================================
+   LOAD DATA
+   ========================================================= */
+
+async function loadProfile(){
+  if(!currentUser) return;
+
+  const ref = doc(db,"users",currentUser.uid);
+  const snap = await getDoc(ref);
+
+  if(snap.exists()){
+    currentProfile = {
+      id:snap.id,
+      ...snap.data()
+    };
+  }else{
+    const role =
+      currentUser.email.toLowerCase() === ADMIN_EMAIL.toLowerCase()
+      ? "admin"
+      : "user";
+
+    currentProfile = {
+      id:currentUser.uid,
+      name:currentUser.displayName || "User",
+      email:currentUser.email,
+      phone:"",
+      role
+    };
+
+    await setDoc(ref,{
+      name:currentProfile.name,
+      email:currentProfile.email,
+      phone:"",
+      role,
+      createdAt:serverTimestamp(),
+      device:navigator.userAgent
+    });
+  }
+}
+
+async function loadUsers(){
+  const snap = await getDocs(collection(db,"users"));
+  allUsers = snap.docs.map(d=>({id:d.id,...d.data()}));
+}
+
+async function loadLeads(){
+  const snap = await getDocs(collection(db,"leads"));
+  allLeads = snap.docs.map(d=>({id:d.id,...d.data()}));
+}
+
+async function loadPayments(){
+  const snap = await getDocs(collection(db,"payments"));
+  allPayments = snap.docs.map(d=>({id:d.id,...d.data()}));
+}
+
+async function loadAnnouncements(){
+  const snap = await getDocs(
+    query(
+      collection(db,"announcements"),
+      orderBy("createdAt","desc"),
+      limit(5)
+    )
+  );
+  announcements = snap.docs.map(d=>({id:d.id,...d.data()}));
+}
+
+/* =========================================================
+   APP START
+   ========================================================= */
+
+onAuthStateChanged(auth,async user=>{
+  currentUser = user;
+
+  if(!user){
+    $("authSection").classList.remove("hidden");
+    $("appSection").classList.add("hidden");
+    return;
+  }
+
+  try{
+    await loadProfile();
+    await loadUsers();
+    await loadLeads();
+    await loadPayments();
+    await loadAnnouncements();
+
+    $("authSection").classList.add("hidden");
+    $("appSection").classList.remove("hidden");
+
+    renderProfile();
+    renderHome();
+    renderTicker();
+    renderAnnouncement();
+
+    if(isAdmin()){
+      $("adminArea").classList.remove("hidden");
+      adminPanel("lead");
+    }else{
+      $("adminArea").classList.add("hidden");
+    }
+
+  }catch(error){
+    console.error(error);
+    alert("ডাটা load করতে সমস্যা হয়েছে: " + error.message);
+  }
+});
+
+/* =========================================================
+   PROFILE / HOME
+   ========================================================= */
+
+function renderProfile(){
+  $("profileName").textContent =
+    currentProfile.name || currentUser.displayName || "User";
+
+  $("profileEmail").textContent =
+    currentProfile.email || currentUser.email || "";
+
+  const initial =
+    (currentProfile.name || "DL").slice(0,2).toUpperCase();
+
+  $("avatarBox").textContent = initial;
+
+  refreshStats();
+}
+
+function userLeads(uid){
+  return allLeads.filter(x=>leadUserId(x) === uid);
+}
+
+function userPayments(uid){
+  return allPayments.filter(x=>
+    x.userId === uid ||
+    x.uid === uid
+  );
+}
+
+function refreshStats(){
+  if(!currentUser) return;
+
+  const leads = userLeads(currentUser.uid);
+  const payments = userPayments(currentUser.uid);
+
+  const t = today();
+
+  const todayLeads = leads.filter(x=>x.date === t);
+
+  const ok = todayLeads.reduce(
+    (s,x)=>s+Number(x.ok || 0),0
+  );
+
+  const problem = todayLeads.reduce(
+    (s,x)=>s+Number(x.problem || 0),0
+  );
+
+  const todayTotal = todayLeads.reduce(
+    (s,x)=>s+totalLeadMoney(x),0
+  );
+
+  const paid = payments.reduce(
+    (s,x)=>s+Number(x.amount || 0),0
+  );
+
+  const totalDue = leads.reduce(
+    (s,x)=>s+totalLeadMoney(x),0
+  ) - paid;
+
+  $("todayOk").textContent = ok;
+  $("todayProblem").textContent = problem;
+  $("todayMoney").textContent = money(todayTotal);
+  $("totalPaid").textContent = money(paid);
+  $("balanceAmount").textContent = money(totalDue);
+}
+
+function renderHome(){
+  $("userPanel").classList.add("hidden");
+  refreshStats();
+}
+
+function renderTicker(){
+  const t = today();
+
+  let html = "";
+
+  allUsers.forEach(u=>{
+    const count = userLeads(u.id)
+      .filter(x=>x.date === t)
+      .reduce((s,x)=>s+Number(x.ok || 0),0);
+
+    html += `
+      <div class="ticker-item">
+        👤 ${esc(u.name || u.email || "User")}
+        &nbsp; • &nbsp;
+        আজকের Lead: <strong>${count}</strong>
+      </div>`;
+  });
+
+  if(!html){
+    html = `<div class="ticker-item">আজ কোনো user data নেই।</div>`;
+  }
+
+  $("tickerTrack").innerHTML = html + html;
+}
+
+function renderAnnouncement(){
+  if(announcements.length){
+    $("announcementText").textContent =
+      announcements[0].text || "কোনো নতুন ঘোষণা নেই।";
+  }else{
+    $("announcementText").textContent =
+      "কোনো নতুন ঘোষণা নেই।";
+  }
+}
+
+/* =========================================================
+   USER PANELS
+   ========================================================= */
+
+function userPanel(type){
+
+  const panel = $("userPanel");
+
+  if(type === "home"){
+    renderHome();
+    return;
+  }
+
+  panel.classList.remove("hidden");
+
+  if(type === "leads"){
+    const rows = userLeads(currentUser.uid);
+
+    panel.innerHTML = `
+      <h2>✅ অকে লিড</h2>
+      <div class="total-box">
+        আজকের: <strong>${rows.filter(x=>x.date===today()).reduce((s,x)=>s+Number(x.ok||0),0)}</strong>
+        &nbsp; | &nbsp;
+        মোট: <strong>${rows.reduce((s,x)=>s+Number(x.ok||0),0)}</strong>
+      </div>
+      ${leadTable(rows)}
+    `;
+  }
+
+  if(type === "money"){
+    const rows = userPayments(currentUser.uid);
+
+    panel.innerHTML = `
+      <h2>💰 লিডের টাকা / Payment</h2>
+      <div class="total-box">
+        মোট Paid: <strong>${money(rows.reduce((s,x)=>s+Number(x.amount||0),0))}</strong>
+      </div>
+      ${paymentTable(rows)}
+    `;
+  }
+
+  if(type === "report"){
+    const rows = userLeads(currentUser.uid)
+      .filter(x=>x.date===today());
+
+    panel.innerHTML = `
+      <h2>📊 আজকের রিপোর্ট</h2>
+      ${leadTable(rows)}
+    `;
+  }
+
+  if(type === "filter"){
+    panel.innerHTML = `
+      <h2>🔎 Date Filter</h2>
+
+      <div class="form-grid">
+        <div class="field">
+          <label>From</label>
+          <input id="filterFrom" type="date">
+        </div>
+
+        <div class="field">
+          <label>To</label>
+          <input id="filterTo" type="date">
+        </div>
+      </div>
+
+      <div class="action">
+        <button class="primary" onclick="applyUserFilter()">Filter</button>
+      </div>
+
+      <div id="filterResult"></div>
+    `;
+
+    window.applyUserFilter = applyUserFilter;
+  }
+
+  if(type === "due"){
+    const leads = userLeads(currentUser.uid);
+    const payments = userPayments(currentUser.uid);
+
+    const total = leads.reduce(
+      (s,x)=>s+totalLeadMoney(x),0
+    );
+
+    const paid = payments.reduce(
+      (s,x)=>s+Number(x.amount||0),0
+    );
+
+    panel.innerHTML = `
+      <h2>💵 বাকী টাকা</h2>
+
+      <div class="stats">
+        <div class="stat">
+          <span>মোট লিড মূল্য</span>
+          <strong>${money(total)}</strong>
+        </div>
+        <div class="stat">
+          <span>মোট Paid</span>
+          <strong>${money(paid)}</strong>
+        </div>
+        <div class="stat">
+          <span>বাকী</span>
+          <strong>${money(Math.max(0,total-paid))}</strong>
+        </div>
+      </div>
+    `;
+  }
+
+  if(type === "work"){
+    panel.innerHTML = `
+      <h2>📢 নতুন কাজ</h2>
+      ${
+        announcements.length
+        ? announcements.map(a=>`
+            <div class="admin-message">
+              ${esc(a.text || "")}
+            </div>
+          `).join("")
+        : "<p>কোনো নতুন কাজ নেই।</p>"
+      }
+    `;
+  }
+
+  if(type === "history"){
+    const rows = userLeads(currentUser.uid);
+
+    panel.innerHTML = `
+      <h2>📜 আমার হিষ্টরী</h2>
+      ${leadTable(rows)}
+      <h2 style="margin-top:25px">Payment History</h2>
+      ${paymentTable(userPayments(currentUser.uid))}
+    `;
+  }
+}
+
+function applyUserFilter(){
+  const from = $("filterFrom").value;
+  const to = $("filterTo").value;
+
+  const rows = userLeads(currentUser.uid).filter(x=>{
+    if(from && x.date < from) return false;
+    if(to && x.date > to) return false;
+    return true;
+  });
+
+  $("filterResult").innerHTML = leadTable(rows);
+}
+
+function leadTable(rows){
+  if(!rows.length){
+    return "<p>কোনো Lead data নেই।</p>";
+  }
+
+  return `
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>OK</th>
+            <th>Problem</th>
+            <th>Rate</th>
+            <th>Total</th>
+            <th>Paid</th>
+            <th>Due</th>
+          </tr>
+        </thead>
+        <tbody>
+        ${rows.map(x=>`
+          <tr>
+            <td>${esc(x.date)}</td>
+            <td>${esc(x.type)}</td>
+            <td>${Number(x.ok||0)}</td>
+            <td>${Number(x.problem||0)}</td>
+            <td>${money(x.rate)}</td>
+            <td>${money(x.total)}</td>
+            <td>${money(x.paid)}</td>
+            <td>${money(Number(x.total||0)-Number(x.paid||0))}</td>
+          </tr>
+        `).join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function paymentTable(rows){
+  if(!rows.length){
+    return "<p>কোনো Payment data নেই।</p>";
+  }
+
+  return `
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Payment No</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Taking No</th>
+            <th>Name</th>
+            <th>Phone</th>
+          </tr>
+        </thead>
+        <tbody>
+        ${rows.map(x=>`
+          <tr>
+            <td>${esc(x.paymentNo)}</td>
+            <td>${esc(x.date)}</td>
+            <td>${money(x.amount)}</td>
+            <td>${esc(x.takingNo)}</td>
+            <td>${esc(x.name)}</td>
+            <td>${esc(x.phone)}</td>
+          </tr>
+        `).join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+/* =========================================================
+   ADMIN
+   ========================================================= */
+
+function adminPanel(type){
+
+  if(!isAdmin()) return;
+
+  const panel = $("adminPanel");
+
+  if(type==="lead"){
+    panel.innerHTML = leadForm();
+  }
+
+  if(type==="payment"){
+    panel.innerHTML = paymentForm();
+  }
+
+  if(type==="user"){
+    panel.innerHTML = userForm();
+  }
+
+  if(type==="work"){
+    panel.innerHTML = workForm();
+  }
+
+  if(type==="history"){
+    panel.innerHTML = historyForm();
+  }
+}
+
+function userOptions(){
+  return allUsers.map(u=>`
+    <option value="${esc(u.id)}">
+      ${esc(u.name || u.email || u.id)}
+    </option>
+  `).join("");
+}
+
+function leadForm(){
+
+return `
+<h2>➕ Lead Add</h2>
+
+<div class="form-grid">
+
+  <div class="field">
+    <label>Date</label>
+    <input id="leadDate" type="date" value="${today()}">
+  </div>
+
+  <div class="field">
+    <label>Lead Type</label>
+    <select id="leadType">
+      <option>Facebook Lead</option>
+      <option>CL Code Lead</option>
+      <option>CL Number Lead</option>
+      <option>CL Room share Lead</option>
+    </select>
+  </div>
+
+  <div class="field full">
+    <label>User</label>
+    <select id="leadUser">
+      ${userOptions()}
+    </select>
+  </div>
+
+  <div class="field">
+    <label>OK Count</label>
+    <input id="leadOk" type="number" min="0" value="0" oninput="calcLead()">
+  </div>
+
+  <div class="field">
+    <label>Problem Count</label>
+    <input id="leadProblem" type="number" min="0" value="0">
+  </div>
+
+  <div class="field">
+    <label>Rate</label>
+    <input id="leadRate" type="number" min="0" value="0" oninput="calcLead()">
+  </div>
+
+  <div class="field">
+    <label>Total Price</label>
+    <input id="leadTotal" type="number" value="0" readonly>
+  </div>
+
+  <div class="field">
+    <label>Paid</label>
+    <input id="leadPaid" type="number" min="0" value="0">
+  </div>
+
+</div>
+
+<div class="total-box">
+  Total: <strong id="leadTotalPreview">৳ 0</strong>
+</div>
+
+<div class="action">
+  <button class="primary" onclick="submitLead()">Submit Lead</button>
+  <button class="secondary" onclick="calcLead()">Preview</button>
+</div>
+
+<div id="leadAdminMessage"></div>
+
+<hr style="margin:25px 0;border-color:rgba(255,255,255,.08)">
+
+<h2>Recent Leads</h2>
+${adminLeadTable()}
+`;
+}
+
+window.calcLead = function(){
+  const ok = Number($("leadOk")?.value || 0);
+  const rate = Number($("leadRate")?.value || 0);
+  const total = ok * rate;
+
+  if($("leadTotal")) $("leadTotal").value = total;
+  if($("leadTotalPreview")) $("leadTotalPreview").textContent = money(total);
+};
+
+function adminLeadTable(){
+  if(!allLeads.length) return "<p>কোনো Lead নেই।</p>";
+
+  return `
+  <div class="table-wrap">
+  <table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>User</th>
+      <th>Type</th>
+      <th>OK</th>
+      <th>Problem</th>
+      <th>Total</th>
+      <th>Paid</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  ${allLeads.slice().reverse().map(x=>{
+    const u = allUsers.find(a=>a.id===leadUserId(x));
+    return `
+    <tr>
+      <td>${esc(x.date)}</td>
+      <td>${esc(u?.name || x.userName || "-")}</td>
+      <td>${esc(x.type)}</td>
+      <td>${x.ok||0}</td>
+      <td>${x.problem||0}</td>
+      <td>${money(x.total)}</td>
+      <td>${money(x.paid)}</td>
+      <td>
+        <button class="danger" onclick="deleteLead('${x.id}')">
+          Delete
+        </button>
+      </td>
+    </tr>`;
+  }).join("")}
+  </tbody>
+  </table>
+  </div>
+  `;
+}
+
+async function submitLead(){
+
+  const uid = $("leadUser").value;
+  if(!uid){
+    alert("User নির্বাচন করুন।");
+    return;
+  }
+
+  const ok = Number($("leadOk").value || 0);
+  const problem = Number($("leadProblem").value || 0);
+  const rate = Number($("leadRate").value || 0);
+  const total = ok * rate;
+  const paid = Number($("leadPaid").value || 0);
+
+  const lead = {
+    date:$("leadDate").value,
+    type:$("leadType").value,
+    userId:uid,
+    ok,
+    problem,
+    rate,
+    total,
+    paid,
+    due:Math.max(0,total-paid),
+    createdAt:serverTimestamp(),
+    createdBy:currentUser.uid
+  };
+
+  try{
+    await addDoc(collection(db,"leads"),lead);
+
+    $("leadAdminMessage").innerHTML =
+      `<div class="success">Lead সফলভাবে যোগ হয়েছে।</div>`;
+
+    await loadLeads();
+    await loadUsers();
+    adminPanel("lead");
+    renderTicker();
+
+  }catch(error){
+    $("leadAdminMessage").innerHTML =
+      `<div class="error">${esc(error.message)}</div>`;
+  }
+}
+
+async function deleteLead(id){
+  if(!confirm("এই Lead delete করবেন?")) return;
+
+  await deleteDoc(doc(db,"leads",id));
+
+  await loadLeads();
+  adminPanel("lead");
+  refreshStats();
+  renderTicker();
+}
+
+/* =========================================================
+   PAYMENT
+   ========================================================= */
+
+function paymentForm(){
+
+return `
+<h2>💰 Payment Add</h2>
+
+<div class="form-grid">
+
+  <div class="field">
+    <label>Payment Number</label>
+    <input id="paymentNo" placeholder="Payment number">
+  </div>
+
+  <div class="field">
+    <label>Date</label>
+    <input id="paymentDate" type="date" value="${today()}">
+  </div>
+
+  <div class="field full">
+    <label>User</label>
+    <select id="paymentUser">
+      ${userOptions()}
+    </select>
+  </div>
+
+  <div class="field">
+    <label>Amount</label>
+    <input id="paymentAmount" type="number" min="0">
+  </div>
+
+  <div class="field">
+    <label>Taking Number</label>
+    <input id="takingNo">
+  </div>
+
+  <div class="field">
+    <label>Name</label>
+    <input id="paymentName">
+  </div>
+
+  <div class="field">
+    <label>Phone</label>
+    <input id="paymentPhone">
+  </div>
+
+</div>
+
+<div class="action">
+  <button class="primary" onclick="submitPayment()">Payment Submit</button>
+</div>
+
+<div id="paymentAdminMessage"></div>
+
+<hr style="margin:25px 0;border-color:rgba(255,255,255,.08)">
+
+<h2>Payment History</h2>
+${paymentTable(allPayments)}
+`;
+}
+
+async function submitPayment(){
+
+  const uid = $("paymentUser").value;
+  const amount = Number($("paymentAmount").value || 0);
+
+  if(!uid || amount <= 0){
+    alert("User এবং valid Amount দিন।");
+    return;
+  }
+
+  const selectedUser =
+    allUsers.find(u=>u.id===uid);
+
+  try{
+
+    await addDoc(collection(db,"payments"),{
+      paymentNo:$("paymentNo").value.trim(),
+      date:$("paymentDate").value,
+      userId:uid,
+      amount,
+      takingNo:$("takingNo").value.trim(),
+      name:$("paymentName").value.trim()
+        || selectedUser?.name || "",
+      phone:$("paymentPhone").value.trim()
+        || selectedUser?.phone || "",
+      createdAt:serverTimestamp(),
+      createdBy:currentUser.uid
+    });
+
+    $("paymentAdminMessage").innerHTML =
+      `<div class="success">Payment সফলভাবে যোগ হয়েছে।</div>`;
+
+    await loadPayments();
+    adminPanel("payment");
+    refreshStats();
+
+  }catch(error){
+    $("paymentAdminMessage").innerHTML =
+      `<div class="error">${esc(error.message)}</div>`;
+  }
+}
+
+/* =========================================================
+   USER ADD
+   ========================================================= */
+
+function userForm(){
+
+return `
+<h2>👥 User Add</h2>
+
+<div class="form-grid">
+
+  <div class="field">
+    <label>Name</label>
+    <input id="newUserName">
+  </div>
+
+  <div class="field">
+    <label>Phone</label>
+    <input id="newUserPhone">
+  </div>
+
+  <div class="field">
+    <label>Email</label>
+    <input id="newUserEmail" type="email">
+  </div>
+
+  <div class="field">
+    <label>Payment Number</label>
+    <input id="newUserPaymentNo">
+  </div>
+
+</div>
+
+<div class="action">
+  <button class="primary" onclick="submitUser()">
+    User Save
+  </button>
+</div>
+
+<div id="userAdminMessage"></div>
+
+<hr style="margin:25px 0;border-color:rgba(255,255,255,.08)">
+
+<h2>Users</h2>
+
+${usersAdminTable()}
+`;
+}
+
+function usersAdminTable(){
+
+if(!allUsers.length)
+return "<p>কোনো user নেই।</p>";
+
+return `
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Phone</th>
+<th>Role</th>
+<th>Join</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+
+${allUsers.map(u=>`
+<tr>
+<td>${esc(u.name)}</td>
+<td>${esc(u.email)}</td>
+<td>${esc(u.phone)}</td>
+<td>${esc(u.role)}</td>
+<td>${u.createdAt?.toDate
+  ? u.createdAt.toDate().toLocaleDateString()
+  : "-"}</td>
+<td>
+<button class="danger"
+onclick="deleteUser('${u.id}')">
+Delete
+</button>
+</td>
+</tr>
+`).join("")}
+
+</tbody>
+</table>
+</div>
+`;
+}
+
+async function submitUser(){
+
+const name = $("newUserName").value.trim();
+const phone = $("newUserPhone").value.trim();
+const email = $("newUserEmail").value.trim();
+const paymentNo = $("newUserPaymentNo").value.trim();
+
+if(!name || !email){
+  alert("Name এবং Email দিন।");
+  return;
+}
+
+try{
+
+await addDoc(collection(db,"users"),{
+  name,
+  phone,
+  email,
+  paymentNo,
+  role:"user",
+  createdAt:serverTimestamp(),
+  device:"Admin manual entry",
+  location:"Not collected",
+  network:"Not available from browser"
+});
+
+$("userAdminMessage").innerHTML =
+`<div class="success">User profile তৈরি হয়েছে।</div>`;
+
+await loadUsers();
+adminPanel("user");
+renderTicker();
+
+}catch(error){
+
+$("userAdminMessage").innerHTML =
+`<div class="error">${esc(error.message)}</div>`;
+
+}
+}
+
+async function deleteUser(id){
+
+if(id===currentUser.uid){
+  alert("নিজের profile delete করা যাবে না।");
+  return;
+}
+
+if(!confirm("এই user profile delete করবেন?")) return;
+
+await deleteDoc(doc(db,"users",id));
+
+await loadUsers();
+adminPanel("user");
+renderTicker();
+}
+
+/* =========================================================
+   NEW WORK
+   ========================================================= */
+
+function workForm(){
+
+return `
+<h2>📢 New Work / Announcement</h2>
+
+<div class="field">
+<label>Admin Message</label>
+<textarea id="announcementInput"
+placeholder="নতুন কাজ বা ঘোষণা লিখুন..."></textarea>
+</div>
+
+<div class="action">
+<button class="primary" onclick="saveAnnouncement()">
+Publish
+</button>
+</div>
+
+<hr style="margin:25px 0;border-color:rgba(255,255,255,.08)">
+
+<h2>Previous Announcements</h2>
+
+${announcements.length
+? announcements.map(a=>`
+<div class="admin-message">
+${esc(a.text)}
+</div>
+`).join("")
+: "<p>কোনো announcement নেই।</p>"
+}
+
+<div id="workAdminMessage"></div>
+`;
+}
+
+async function saveAnnouncement(){
+
+const text = $("announcementInput").value.trim();
+
+if(!text){
+  alert("Message লিখুন।");
+  return;
+}
+
+try{
+
+await addDoc(collection(db,"announcements"),{
+  text,
+  createdAt:serverTimestamp(),
+  createdBy:currentUser.uid
+});
+
+await loadAnnouncements();
+
+$("workAdminMessage").innerHTML =
+`<div class="success">Announcement publish হয়েছে।</div>`;
+
+renderAnnouncement();
+adminPanel("work");
+
+}catch(error){
+
+$("workAdminMessage").innerHTML =
+`<div class="error">${esc(error.message)}</div>`;
+
+}
+}
+
+/* =========================================================
+   HISTORY
+   ========================================================= */
+
+function historyForm(){
+
+return `
+<h2>📜 All History</h2>
+
+<div class="form-grid">
+
+<div class="field">
+<label>User</label>
+<select id="historyUser">
+<option value="">All Users</option>
+${userOptions()}
+</select>
+</div>
+
+<div class="field">
+<label>Date</label>
+<input id="historyDate" type="date">
+</div>
+
+</div>
+
+<div class="action">
+<button class="primary" onclick="filterHistory()">
+Filter
+</button>
+</div>
+
+<div id="historyResult">
+${adminHistoryTable(allLeads)}
+</div>
+`;
+}
+
+function filterHistory(){
+
+const uid = $("historyUser").value;
+const date = $("historyDate").value;
+
+let rows = allLeads;
+
+if(uid)
+rows = rows.filter(x=>leadUserId(x)===uid);
+
+if(date)
+rows = rows.filter(x=>x.date===date);
+
+$("historyResult").innerHTML =
+adminHistoryTable(rows);
+}
+
+function adminHistoryTable(rows){
+
+if(!rows.length)
+return "<p>কোনো History পাওয়া যায়নি।</p>";
+
+return `
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>User</th>
+<th>Type</th>
+<th>OK</th>
+<th>Problem</th>
+<th>Rate</th>
+<th>Total</th>
+<th>Paid</th>
+<th>Due</th>
+</tr>
+</thead>
+
+<tbody>
+
+${rows.slice().reverse().map(x=>{
+
+const u =
+allUsers.find(a=>a.id===leadUserId(x));
+
+return `
+<tr>
+<td>${esc(x.date)}</td>
+<td>${esc(u?.name || "-")}</td>
+<td>${esc(x.type)}</td>
+<td>${x.ok||0}</td>
+<td>${x.problem||0}</td>
+<td>${money(x.rate)}</td>
+<td>${money(x.total)}</td>
+<td>${money(x.paid)}</td>
+<td>${money(
+  Math.max(0,
+    Number(x.total||0)-Number(x.paid||0)
+  )
+)}</td>
+</tr>
+`;
+
+}).join("")}
+
+</tbody>
+</table>
+</div>
+`;
+}
+
+/* =========================================================
+   PLACEHOLDER EDIT FUNCTIONS
+   ========================================================= */
+
+async function saveUserEdit(id){
+  return;
+}
+
+async function saveLeadEdit(id){
+  return;
+}
+
+</script>
+
+</body>
+</html>
